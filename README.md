@@ -33,7 +33,6 @@ For direct contributions, please fork the repository and file a pull request.
 
 #### Developer/Full-stack Web Software Developer
 * Name: Max Wheeler (@ewheel17)
-* Homepage: 
-* e-mail: 
-* Twitter: 
-* LinkedIn: 
+* Homepage: https://emaxwheeler.com/
+* e-mail: ewheel17@gmail.com
+* LinkedIn: https://www.linkedin.com/in/elliottmaxwheeler/
