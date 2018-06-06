@@ -1,5 +1,5 @@
-# Title
-AMChatter (in development)
+# AMChatter (in development)
+
 
 ## Contributors
 @acd37
