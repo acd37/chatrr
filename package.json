@@ -1,0 +1,30 @@
+{
+  "name": "amchat",
+  "version": "1.0.0",
+  "description": "An application for chatroom style conversation.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server" 
+  },
+  "dependencies": {
+    "express": "*",
+    "mongoose": "*",
+    "bcryptjs": "*",
+    "cors": "*",
+    "jsonwebtoken": "*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acd37/amchat.git"
+  },
+  "author": "Alec Down, Max Wheeler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acd37/amchat/issues"
+  },
+  "homepage": "https://github.com/acd37/amchat#readme"
+}
