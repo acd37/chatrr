@@ -1,6 +1,6 @@
 (function() {
 
-    var module = angular.module('githubViewer');
+    var module = angular.module('AMChatter');
 
     var ChatController = function($scope, $routeParams){
 
