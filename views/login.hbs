@@ -19,7 +19,7 @@
   <h1>Login</h1>
 
     <div class="col-md-10 offset-md-1">
-  <form>
+  <form method="post" action="/login">
     <div class="form-group">
       <label for="login-email">Email address</label>
       <input type="email" class="form-control" id="login-email" name="email">
@@ -28,7 +28,7 @@
       <label for="login-password">Password</label>
       <input type="password" class="form-control" id="login-password" name="password">
     </div>
-    <a class="btn btn-primary" href="/chat">Submit</a>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
   </div>

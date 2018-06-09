@@ -10,7 +10,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/profile',
+        successRedirect: '/chat',
         failureRedirect: '/login',
         failureFlash: true
     }));
