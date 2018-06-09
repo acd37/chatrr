@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700");
 html, body {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   background: #323232; }
 
 h1, h2, h3 {
@@ -41,6 +41,8 @@ h2 {
 .btn-primary:not(:disabled):not(.disabled):active {
   background-color: #ff0040;
   border: 1px solid #ff0040;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
   transition-duration: 0.3s; }
 
 .intro_buttons {
@@ -53,6 +55,24 @@ h2 {
 
 .chat-wrapper {
   margin: 30px auto; }
+  .chat-wrapper #chat form input {
+    border: 0;
+    padding: 10px;
+    width: 90%;
+    margin-right: .5%; }
+  .chat-wrapper #messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  .chat-wrapper #messages li {
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 11700.4px; }
+  .chat-wrapper #messages li:nth-child(odd) {
+    background: #ff3366;
+    color: #fff; }
+  .chat-wrapper #messages li:nth-child(even) {
+    background: #fff; }
   .chat-wrapper input {
     text-transform: none !important; }
   .chat-wrapper input:focus {
@@ -61,12 +81,11 @@ h2 {
     margin-left: 300px;
     padding: 0 25px; }
   .chat-wrapper #chatbox {
-    background-color: #fff;
-    border: 1px solid #ced4da;
     margin: 10px 0;
-    min-height: 500px;
+    height: 500px;
     border-radius: 0;
-    padding: 10px; }
+    padding: 10px;
+    overflow-y: scroll; }
   .chat-wrapper .side-nav {
     width: 280px;
     float: left;
@@ -91,6 +110,7 @@ h2 {
   font-weight: 200;
   font-size: 12px;
   letter-spacing: 1.4px; }
+
 .register-wrapper input, .login-wrapper input, .chat-wrapper input {
   border-radius: 0;
   border: 2px solid #fff;
@@ -100,10 +120,12 @@ h2 {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1.4px; }
+
 .register-wrapper input:focus, .login-wrapper input:focus, .chat-wrapper input:focus {
   background-color: #323232;
   color: #fff;
   text-transform: uppercase; }
+
 .register-wrapper small, .login-wrapper small, .chat-wrapper small {
   margin-top: -25px; }
 
@@ -113,6 +135,6 @@ a.back-link {
 a.back-link:hover {
   color: #ff3366;
   text-decoration: none;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
   transition-duration: 0.3s; }
-
-/*# sourceMappingURL=app.css.map */

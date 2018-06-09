@@ -87,7 +87,6 @@ io.on('connection', function(socket){
   });
 });
 
-
 //Start server
 http.listen(port, () =>{
     console.log('Server started on port: ' + port);
