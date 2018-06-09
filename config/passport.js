@@ -17,11 +17,12 @@ module.exports = function(passport){
 
     // Local Signup
     passport.use('local-signup', new LocalStrategy({
+        nameField: 'name',
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true
     },
-    function(req, email, password, done){
+    function(req,name, email, password, done){
         process.nextTick(() => {
             User.findOne({'local.email': email}, (err,user) => {
                 if (err){
@@ -30,8 +31,9 @@ module.exports = function(passport){
 
                 if (user){
                     return done(null, false, req.flash('signupMessage', 'That email is already in use.'))
-                } else{
+                } else {
                     let newUser = new User();
+                    newUser.local.name = name;
                     newUser.local.email = email;
                     newUser.local.password = newUser.generateHash(password);
 
@@ -61,7 +63,7 @@ module.exports = function(passport){
             }
 
             if (!user.validPassword(password)){
-                return done(null, false, req.flash('loginMessage', 'Opps! Wrong Password.'))
+                return done(null, false, req.flash('loginMessage', 'Oops! Wrong Password.'))
             }
 
             return done(null,user);
