@@ -1,16 +1,22 @@
 
-<a href="#/main" >Back to Welcome Page</a>
+<a class="back-link" href="#/main" >Back to Welcome Page</a>
 
-<h1>Login</h1>
 
-<form>
-  <div class="form-group">
-    <label for="login-email">Email address</label>
-    <input type="email" class="form-control" id="login-email" placeholder="Enter email">
+<div class="login-wrapper">
+  <h1>Login</h1>
+
+    <div class="col-md-10 offset-md-1">
+  <form>
+    <div class="form-group">
+      <label for="login-email">Email address</label>
+      <input type="email" class="form-control" id="login-email">
+    </div>
+    <div class="form-group">
+      <label for="login-password">Password</label>
+      <input type="password" class="form-control" id="login-password">
+    </div>
+    <a class="btn btn-primary" href="#/chat">Submit</a>
+  </form>
+
   </div>
-  <div class="form-group">
-    <label for="login-password">Password</label>
-    <input type="password" class="form-control" id="login-password" placeholder="Password">
-  </div>
-  <a class="btn btn-primary" href="#/chat">Submit</a>
-</form>
+</div>
