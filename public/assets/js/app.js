@@ -1,3 +1,6 @@
+var user = req.user;
+
+
 $(function () {
   var socket = io();
   $('form').submit(function(){
@@ -6,6 +9,6 @@ $(function () {
     return false;
   });
   socket.on('chat message', function(msg){
-    $('#messages').prepend($('<li>').text(msg));
+    $('#messages').prepend($('<li>').html(msg));
   });
 });
