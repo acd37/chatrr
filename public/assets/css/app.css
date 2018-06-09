@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700");
 html, body {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   background: #323232; }
 
 h1, h2, h3 {
@@ -41,14 +41,12 @@ h2 {
 .btn-primary:not(:disabled):not(.disabled):active {
   background-color: #ff0040;
   border: 1px solid #ff0040;
-  -webkit-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
   transition-duration: 0.3s; }
 
 .intro_buttons {
   margin-top: 100px;
   text-align: center;
-  margin: 25% auto; }
+  margin: 50px auto 0 auto; }
 
 .register-wrapper, .login-wrapper {
   margin: 100px auto; }
@@ -93,7 +91,6 @@ h2 {
   font-weight: 200;
   font-size: 12px;
   letter-spacing: 1.4px; }
-
 .register-wrapper input, .login-wrapper input, .chat-wrapper input {
   border-radius: 0;
   border: 2px solid #fff;
@@ -103,12 +100,10 @@ h2 {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1.4px; }
-
 .register-wrapper input:focus, .login-wrapper input:focus, .chat-wrapper input:focus {
   background-color: #323232;
   color: #fff;
   text-transform: uppercase; }
-
 .register-wrapper small, .login-wrapper small, .chat-wrapper small {
   margin-top: -25px; }
 
@@ -118,6 +113,6 @@ a.back-link {
 a.back-link:hover {
   color: #ff3366;
   text-decoration: none;
-  -webkit-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
   transition-duration: 0.3s; }
+
+/*# sourceMappingURL=app.css.map */
