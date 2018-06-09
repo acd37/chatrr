@@ -21,6 +21,8 @@ mongoose.connection.on('error', (err) => {
 });
 
 const app = express();
+const http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 const users = require('./app/routes/users');
 
@@ -64,7 +66,29 @@ app.get('/register', function(req,res) {
   res.render('./register');
 });
 
+app.get('/chat', function(req,res) {
+  res.render('./chat');
+});
+
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+  });
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
+
+
 //Start server
-app.listen(port, () =>{
+http.listen(port, () =>{
     console.log('Server started on port: ' + port);
 });
