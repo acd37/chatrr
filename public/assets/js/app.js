@@ -2,7 +2,8 @@ $(function () {
 
   var socket = io.connect();
 
-  $('form').submit(function(){
+  $('form').submit(function(e){
+    e.preventDefault()
 
     var submit_msg = {
       msg: $('#m').val(),

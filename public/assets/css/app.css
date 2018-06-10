@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700");
 html, body {
   font-family: 'Raleway', sans-serif;
-  background: #323232; }
+  background: #fff; }
 
 h1, h2, h3 {
   text-align: center;
   letter-spacing: 1.4px;
-  color: #fff;
+  color: #323232;
   text-transform: uppercase; }
 
 h1 {
@@ -15,13 +15,13 @@ h1 {
   margin-bottom: 20px; }
 
 h2 {
-  font-weight: 100;
+  font-weight: 300;
   font-size: 20px;
   margin-bottom: 50px; }
 
 .btn-default {
-  background-color: #a0a9b4;
-  border: 1px solid #a0a9b4;
+  background-color: #323232;
+  border: 1px solid #323232;
   color: #fff;
   border-radius: 11700.4px;
   padding: 10px 45px;
@@ -77,94 +77,104 @@ h2 {
   margin: 100px auto; }
 
 .chat-wrapper {
-  margin: 30px auto; }
-  .chat-wrapper #chat form input {
-    border: 0;
-    padding: 10px;
-    width: 90%;
-    margin-right: .5%; }
+  padding: 30px auto; }
+  .chat-wrapper input {
+    text-transform: none !important; }
   .chat-wrapper #messages {
     list-style-type: none;
     margin: 0;
     padding: 0; }
-  .chat-wrapper #messages li {
-    margin-bottom: 15px; }
-  .chat-wrapper #messages .msg {
-    padding: 3px 10px;
-    margin: 0 0 20px 10px;
-    border-radius: 10px;
-    background-color: rgba(238, 238, 238, 0.7); }
-  .chat-wrapper #messages .user_name {
-    font-weight: 700; }
-  .chat-wrapper #chat {
-    margin-left: 300px;
-    padding: 0 25px; }
-    .chat-wrapper #chat input {
-      text-transform: none !important;
-      border-radius: 0 !important;
-      border: 2px solid #fff !important;
-      background-color: #323232;
-      padding: 10px 5px; }
-    .chat-wrapper #chat input:focus {
-      text-transform: none !important;
-      border-radius: 0;
-      border: 2px solid #fff;
-      background-color: #323232;
-      padding: 10px 5px; }
+    .chat-wrapper #messages li {
+      margin: 20px 0; }
+    .chat-wrapper #messages .msg {
+      padding: 8px 20px;
+      margin: 20px;
+      -webkit-box-shadow: 5px 3px 6px rgba(102, 102, 102, 0.16), 0 3px 6px rgba(102, 102, 102, 0.23);
+      box-shadow: 5px 3px 6px rgba(102, 102, 102, 0.16), 0 3px 6px rgba(102, 102, 102, 0.23);
+      border-radius: 10px;
+      background-color: #fff;
+      font-weight: 500;
+      color: #000; }
+    .chat-wrapper #messages .user_name {
+      font-weight: 700; }
+  .chat-wrapper .chat-box {
+    background-color: #f6f6fc; }
   .chat-wrapper #chatbox {
     margin: 10px 0;
-    height: 500px;
+    background-color: #f6f6fc;
     border-radius: 0;
-    padding: 10px;
-    overflow-y: auto; }
+    height: calc(100vh - 100px);
+    overflow-y: hidden; }
   .chat-wrapper .side-nav {
     width: 280px;
     float: left;
-    color: #fff; }
+    color: #323232; }
     .chat-wrapper .side-nav ul {
       list-style-type: none; }
     .chat-wrapper .side-nav #username {
       margin-top: 10px; }
     .chat-wrapper .side-nav hr {
-      border: 0.5px solid #fff; }
+      border: 0.5px solid #323232; }
     .chat-wrapper .side-nav #user-image {
       margin-left: 40px;
       border-radius: 10px;
       padding: 10px; }
+    .chat-wrapper .side-nav #user-name {
+      margin-left: 50px; }
     .chat-wrapper .side-nav #friend-image {
       border-radius: 10px;
       padding: 10px; }
     .chat-wrapper .side-nav .user-name {
       padding: 10px; }
 
-.register-wrapper label, .login-wrapper label, .chat-wrapper label {
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1.4px;
-  font-weight: 200;
-  font-size: 12px;
-  letter-spacing: 1.4px; }
-
-.register-wrapper input, .login-wrapper input, .chat-wrapper input {
+.chat-wrapper input {
   border-radius: 0;
-  border: 2px solid #fff;
-  background-color: #323232;
+  border: 0;
+  border-bottom: 1px solid #323232;
+  background-color: transparent;
   padding: 10px 5px;
   margin-bottom: 30px;
   color: #fff;
   text-transform: uppercase;
+  letter-spacing: 1.4px;
+  width: 80%; }
+
+.chat-wrapper input:focus {
+  color: #323232;
+  text-transform: uppercase;
+  border-bottom: 3px solid #323232;
+  outline: 0;
+  -webkit-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s; }
+
+.register-wrapper label, .login-wrapper label {
+  color: #323232;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-weight: 300;
+  font-size: 12px;
   letter-spacing: 1.4px; }
 
-.register-wrapper input:focus, .login-wrapper input:focus, .chat-wrapper input:focus {
-  background-color: #323232;
-  color: #fff;
+.register-wrapper input, .login-wrapper input {
+  border-radius: 0;
+  border: 2px solid #323232;
+  background-color: #fff;
+  padding: 10px 5px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px; }
+
+.register-wrapper input:focus, .login-wrapper input:focus {
+  background-color: #fff;
+  color: #323232;
   text-transform: uppercase; }
 
-.register-wrapper small, .login-wrapper small, .chat-wrapper small {
+.register-wrapper small, .login-wrapper small {
   margin-top: -25px; }
 
 a.back-link {
-  color: #fff; }
+  color: #323232; }
 
 a.back-link:hover {
   color: #ff3366;
@@ -174,6 +184,6 @@ a.back-link:hover {
   transition-duration: 0.3s; }
 
 .user_name {
-  color: #fff;
+  color: #323232;
   font-size: 12px;
   margin-bottom: -15px; }

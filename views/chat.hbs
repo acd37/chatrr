@@ -7,47 +7,48 @@
      <meta name="Simple chat app" content="Chat app">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
      <link rel="stylesheet" type="text/css" href="assets/css/app.css" />
-
-</head>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+           rel="stylesheet"></head>
 
 <body>
 
 <div class="chat-wrapper">
+  <div class="container-fluid">
 
-  <h1> Chatrr</h1>
+  <div class="row">
+    <div class="col-md-3 side-nav">
+        <img id="user-image" src="https://via.placeholder.com/70x70" />
+        <p id="user-name">
+          {{user.local.email}}
+        </p>
+        <p>
+          <a class="btn btn-logout" href="/logout">Log Out</a>
+        </p>
+        <hr />
 
-  <div class="side-nav">
-    <img id="user-image" src="https://via.placeholder.com/70x70" />
-    <p id="user-name">
-      {{user.local.email}}
-    </p>
-    <p>
-      <a class="btn btn-logout" href="/logout">Log Out</a>
-    </p>
-    <hr />
+        <ul>
+          <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
+          <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
+          <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
+        </ul>
+    </div>
 
-    <ul>
-      <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
-      <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
-      <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
-    </ul>
-
-  </div>
-
-
-
-<div id="chat">
-  <div id="chatbox">
+    <div class="col-md-9 chat-box">
+      <div id="chatbox">
       <ul id="messages"></ul>
-  </div>
+      </div>
+      <form action="">
+        <input id="m" autocomplete="off" />
+        <button class="btn btn-light"><i class="material-icons">send</i></button>
+      </form>
 
-  <form action="">
-    <input id="m" autocomplete="off" />
-    <button class="btn btn-light">Send</button>
-  </form>
+    </div>
+
+
+
+
 
 </div>
-
 
 </div>
 
