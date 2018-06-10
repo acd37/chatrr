@@ -49,6 +49,9 @@ require('./app/routes.js')(app,passport);
 //Socket.IO
 io.on('connection', function(socket){
   console.log('a user connected');
+
+  socket.send(socket.id);
+
 });
 
 io.on('connection', function(socket){

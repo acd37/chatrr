@@ -1,4 +1,17 @@
 module.exports = function(app, passport) {
+
+  //API Routes
+  app.get('/api/user_data', function(req, res) {
+    if (req.user === undefined) {
+      res.json ({});
+    } else {
+      res.json({
+        username: req.user.local.email
+      });
+    }
+  });
+
+
     // Home Page
     app.get('/', (req,res) => {
         res.render('main');
@@ -29,9 +42,12 @@ module.exports = function(app, passport) {
 
     // Profile
     app.get('/chat', isLoggedIn, (req,res) => {
+
         res.render('chat', {
-            user: req.user
+            user: req.user,
+            email: req.user.local.email
         });
+
     });
 
     // Logout
@@ -40,6 +56,9 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 };
+
+
+
 
 // Route Middleware
 function isLoggedIn(req,res,next){

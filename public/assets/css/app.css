@@ -66,26 +66,30 @@ h2 {
     padding: 0; }
   .chat-wrapper #messages li {
     padding: 5px 10px;
-    margin: 10px 0;
-    border-radius: 11700.4px; }
-  .chat-wrapper #messages li:nth-child(odd) {
-    background: #ff3366;
-    color: #fff; }
-  .chat-wrapper #messages li:nth-child(even) {
-    background: #fff; }
-  .chat-wrapper input {
-    text-transform: none !important; }
-  .chat-wrapper input:focus {
-    text-transform: none !important; }
+    margin: 20px 0;
+    border-radius: 11700.4px;
+    background-color: #eee; }
   .chat-wrapper #chat {
     margin-left: 300px;
     padding: 0 25px; }
+    .chat-wrapper #chat input {
+      text-transform: none !important;
+      border-radius: 0 !important;
+      border: 2px solid #fff !important;
+      background-color: #323232;
+      padding: 10px 5px; }
+    .chat-wrapper #chat input:focus {
+      text-transform: none !important;
+      border-radius: 0;
+      border: 2px solid #fff;
+      background-color: #323232;
+      padding: 10px 5px; }
   .chat-wrapper #chatbox {
     margin: 10px 0;
     height: 500px;
     border-radius: 0;
     padding: 10px;
-    overflow-y: scroll; }
+    overflow-y: auto; }
   .chat-wrapper .side-nav {
     width: 280px;
     float: left;

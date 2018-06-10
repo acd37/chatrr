@@ -63,8 +63,10 @@ module.exports = function(passport){
             if (!user.validPassword(password)){
                 return done(null, false, req.flash('loginMessage', 'Opps! Wrong Password.'))
             }
+          
+            return done(null, user);
 
-            return done(null,user);
+
         });
     }));
 };
