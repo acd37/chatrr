@@ -45,7 +45,6 @@ app.set('view engine', '.hbs');
 // Routes
 require('./app/routes.js')(app,passport);
 
-
 //Socket.IO
 io.on('connection', function(socket){
       console.log(socket.id + ' connected');
@@ -58,30 +57,15 @@ io.on('connection', function(socket){
 
     user = socket.id;
 
-    console.log(user)
-    console.log(msg)
-
     let new_msg = {
       user:user,
       msg:msg
     }
 
     io.emit('chat message', new_msg);
-
-    console.log(new_msg)
-
-  });
-
-  socket.on('send user', function(user){
-    user = socket.id
-    io.emit('send user', user)
   });
 
 });
-
-
-
-
 
 //Start server
 server.listen(port, () =>{

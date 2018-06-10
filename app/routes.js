@@ -42,12 +42,10 @@ module.exports = function(app, passport) {
 
     // Profile
     app.get('/chat', isLoggedIn, (req,res) => {
-
         res.render('chat', {
             user: req.user,
             email: req.user.local.email
         });
-
     });
 
     // Logout

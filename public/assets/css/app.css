@@ -45,6 +45,29 @@ h2 {
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s; }
 
+.btn-logout {
+  background-color: #ff3366;
+  border: 1px solid #ff3366;
+  border-radius: 0;
+  margin-left: 50px;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 30px; }
+
+.btn-logout:hover,
+.btn-logout:active,
+.btn-logout:focus,
+.btn-logout:not(:disabled):not(.disabled):active {
+  background-color: #ff0040;
+  border: 1px solid #ff0040;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  color: #fff; }
+
+.btn-light {
+  border-radius: 0; }
+
 .intro_buttons {
   margin-top: 100px;
   text-align: center;
@@ -65,10 +88,14 @@ h2 {
     margin: 0;
     padding: 0; }
   .chat-wrapper #messages li {
-    padding: 5px 10px;
-    margin: 0 0 20px 0;
-    border-radius: 11700.4px;
-    background-color: #eee; }
+    margin-bottom: 15px; }
+  .chat-wrapper #messages .msg {
+    padding: 3px 10px;
+    margin: 0 0 20px 10px;
+    border-radius: 10px;
+    background-color: rgba(238, 238, 238, 0.7); }
+  .chat-wrapper #messages .user_name {
+    font-weight: 700; }
   .chat-wrapper #chat {
     margin-left: 300px;
     padding: 0 25px; }
@@ -94,18 +121,21 @@ h2 {
     width: 280px;
     float: left;
     color: #fff; }
+    .chat-wrapper .side-nav ul {
+      list-style-type: none; }
     .chat-wrapper .side-nav #username {
       margin-top: 10px; }
     .chat-wrapper .side-nav hr {
       border: 0.5px solid #fff; }
     .chat-wrapper .side-nav #user-image {
+      margin-left: 40px;
       border-radius: 10px;
-      margin-right: 10px;
-      float: left; }
+      padding: 10px; }
     .chat-wrapper .side-nav #friend-image {
-      border-radius: 10px 10px 0 0;
-      margin-right: 10px;
-      float: left; }
+      border-radius: 10px;
+      padding: 10px; }
+    .chat-wrapper .side-nav .user-name {
+      padding: 10px; }
 
 .register-wrapper label, .login-wrapper label, .chat-wrapper label {
   color: #fff;

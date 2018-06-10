@@ -47,6 +47,28 @@ h2
   border: 1px solid darken($accent, 10%)
   transition-duration: 0.3s
 
+.btn-logout
+  background-color: $accent
+  border: 1px solid $accent
+  border-radius: 0
+  margin-left: 50px
+  color: #fff
+  font-size: 12px
+  padding: 5px 30px
+
+.btn-logout:hover,
+.btn-logout:active,
+.btn-logout:focus,
+.btn-logout:not(:disabled):not(.disabled):active
+  background-color: darken($accent, 10%)
+  border: 1px solid darken($accent, 10%)
+  transition-duration: 0.3s
+  color: #fff
+
+.btn-light
+  border-radius: 0
+
+
 .intro_buttons
   margin-top: 100px
   text-align: center
@@ -72,11 +94,18 @@ h2
     padding: 0
 
   #messages
+
     li
-      padding: 5px 10px
-      margin: 0 0 20px 0 
-      border-radius: 11700.4px
-      background-color: #eee
+      margin-bottom: 15px
+
+    .msg
+      padding: 3px 10px
+      margin: 0 0 20px 10px
+      border-radius: 10px
+      background-color: rgba(238,238,238, 0.7)
+
+    .user_name
+      font-weight: 700
 
   #chat
     margin-left: 300px
@@ -108,6 +137,9 @@ h2
     float: left
     color: #fff
 
+    ul
+      list-style-type: none
+
     #username
       margin-top: 10px
 
@@ -115,14 +147,17 @@ h2
       border: 0.5px solid #fff
 
     #user-image
+      margin-left: 40px
       border-radius: 10px
-      margin-right: 10px
-      float: left
+      padding: 10px
 
     #friend-image
-      border-radius: 10px 10px 0 0
-      margin-right: 10px
-      float: left
+      border-radius: 10px
+      padding: 10px
+
+    .user-name
+      padding: 10px
+
 
 
 .register-wrapper, .login-wrapper, .chat-wrapper

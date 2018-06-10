@@ -6,31 +6,17 @@ $(function () {
     socket.emit('chat message', $('#m').val());
     $('#m').val('');
 
-    socket.emit('send user', 'alec')
+    socket.emit('send user')
     return false;
   });
-
-
 
   socket.on('chat message', function(new_msg){
 
     console.log(new_msg);
 
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": window.location.origin + "/api/user_data",
-      "method": "GET"
-    }
-
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-
-      $('#messages').append('<span class="user_name">' + new_msg.user + ':</span> ' + '<li>' + new_msg.msg + '</li>');
+        $('#messages').append('<li><span class="user_name">' + new_msg.user + ':</span><span class="msg">' + new_msg.msg + '</span></li>');
       scrollToBottom();
-
     });
-  });
 });
 
 function scrollToBottom(){
