@@ -10,8 +10,8 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server)
 require('./config/passport')(passport);
 
 // Configuration
@@ -64,6 +64,6 @@ io.on('connection', function(socket){
 });
 
 //Start server
-http.listen(port, () =>{
+server.listen(port, () =>{
     console.log('Server started on port: ' + port);
 });
