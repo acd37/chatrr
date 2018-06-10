@@ -48,23 +48,40 @@ require('./app/routes.js')(app,passport);
 
 //Socket.IO
 io.on('connection', function(socket){
-  console.log('a user connected');
+      console.log(socket.id + ' connected');
 
-  socket.send(socket.id);
-
-});
-
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
+  socket.on('disconnect', function(){
+      console.log(socket.id + ' disconnected');
   });
+
+  socket.on('chat message', function(msg){
+
+    user = socket.id;
+
+    console.log(user)
+    console.log(msg)
+
+    let new_msg = {
+      user:user,
+      msg:msg
+    }
+
+    io.emit('chat message', new_msg);
+
+    console.log(new_msg)
+
+  });
+
+  socket.on('send user', function(user){
+    user = socket.id
+    io.emit('send user', user)
+  });
+
 });
 
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
+
+
+
 
 //Start server
 server.listen(port, () =>{

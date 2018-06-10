@@ -66,7 +66,7 @@ h2 {
     padding: 0; }
   .chat-wrapper #messages li {
     padding: 5px 10px;
-    margin: 20px 0;
+    margin: 0 0 20px 0;
     border-radius: 11700.4px;
     background-color: #eee; }
   .chat-wrapper #chat {
@@ -142,3 +142,8 @@ a.back-link:hover {
   -webkit-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s; }
+
+.user_name {
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: -15px; }
