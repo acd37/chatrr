@@ -55,6 +55,9 @@ io.on('connection', function(socket){
 
   socket.on('chat message', function(msg){
 
+
+    
+
     user = socket.id;
 
     let new_msg = {

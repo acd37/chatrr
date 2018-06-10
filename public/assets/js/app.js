@@ -14,7 +14,8 @@ $(function () {
 
     console.log(new_msg);
 
-        $('#messages').append('<li><span class="user_name">' + new_msg.user + ':</span><span class="msg">' + new_msg.msg + '</span></li>');
+        var user = $("#user-name").text();
+        $('#messages').append('<li><span class="user_name">' + user + ':</span><span class="msg">' + new_msg.msg + '</span></li>');
       scrollToBottom();
     });
 });
