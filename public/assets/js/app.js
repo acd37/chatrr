@@ -3,10 +3,15 @@ $(function () {
   var socket = io.connect();
 
   $('form').submit(function(){
-    socket.emit('chat message', $('#m').val());
+
+    var submit_msg = {
+      msg: $('#m').val(),
+      user:  $("#user-name").text()
+    }
+
+    socket.emit('chat message', submit_msg);
     $('#m').val('');
 
-    socket.emit('send user')
     return false;
   });
 
@@ -14,8 +19,7 @@ $(function () {
 
     console.log(new_msg);
 
-        var user = $("#user-name").text();
-        $('#messages').append('<li><span class="user_name">' + user + ':</span><span class="msg">' + new_msg.msg + '</span></li>');
+        $('#messages').append('<li><span class="user_name">' + new_msg.user + ':</span><span class="msg">' + new_msg.msg + '</span></li>');
       scrollToBottom();
     });
 });

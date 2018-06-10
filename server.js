@@ -49,20 +49,18 @@ require('./app/routes.js')(app,passport);
 io.on('connection', function(socket){
       console.log(socket.id + ' connected');
 
-  socket.on('disconnect', function(){
-      console.log(socket.id + ' disconnected');
-  });
+      socket.on('disconnect', function(){
+          console.log(socket.id + ' disconnected');
+      });
 
   socket.on('chat message', function(msg){
 
-
-    
-
-    user = socket.id;
+    console.log('submit message:' + msg.msg)
+    console.log('submit message:' + msg.user)
 
     let new_msg = {
-      user:user,
-      msg:msg
+      user:msg.user,
+      msg:msg.msg
     }
 
     io.emit('chat message', new_msg);
