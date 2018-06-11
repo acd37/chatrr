@@ -19,7 +19,13 @@
 <div class="login-wrapper">
   <h1>Login</h1>
 
+    {{#if message}}
+      <div class="alert alert-danger text-center">{{message}}</div>
+    {{/if}}
+    
+
     <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3">
+
       <form method="post" action="/login">
         <div class="form-group">
           <label for="login-email">Email address</label>
