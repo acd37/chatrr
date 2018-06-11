@@ -42,8 +42,8 @@ $(function () {
     function timeoutFunction(){
       typing = false;
       var typing_message = {
-        user: $("#user-name").text(),
-        msg: ' stopped typing'
+        user: '&nbsp;',
+        msg: '&nbsp;'
       }
       socket.emit('is typing', typing_message);
     }
