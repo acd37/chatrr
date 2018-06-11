@@ -49,21 +49,26 @@ require('./app/routes.js')(app,passport);
 io.on('connection', function(socket){
       console.log(socket.id + ' connected');
 
-      socket.on('disconnect', function(){
-          console.log(socket.id + ' disconnected');
-      });
+  socket.on('disconnect', function(){
+      console.log(socket.id + ' disconnected');
+  });
 
   socket.on('chat message', function(msg){
-
-    console.log('submit message:' + msg.msg)
-    console.log('submit message:' + msg.user)
-
     let new_msg = {
       user:msg.user,
       msg:msg.msg
     }
-
     io.emit('chat message', new_msg);
+  });
+
+  socket.on('is typing', function(data){
+
+    let typing_message = {
+      user: data.user,
+      msg: data.msg
+    }
+
+    io.emit('is typing', typing_message)
   });
 
 });

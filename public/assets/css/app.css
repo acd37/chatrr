@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 html, body {
   font-family: 'Raleway', sans-serif;
   background: #fff; }
@@ -87,14 +88,15 @@ h2 {
     .chat-wrapper #messages li {
       margin: 20px 0; }
     .chat-wrapper #messages .msg {
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      font-size: 14px;
       padding: 8px 20px;
       margin: 20px;
       -webkit-box-shadow: 5px 3px 6px rgba(102, 102, 102, 0.16), 0 3px 6px rgba(102, 102, 102, 0.23);
       box-shadow: 5px 3px 6px rgba(102, 102, 102, 0.16), 0 3px 6px rgba(102, 102, 102, 0.23);
       border-radius: 10px;
-      background-color: #fff;
-      font-weight: 500;
-      color: #000; }
+      background-color: #282A36; }
     .chat-wrapper #messages .user_name {
       font-weight: 700; }
   .chat-wrapper .chat-box {
@@ -108,14 +110,14 @@ h2 {
   .chat-wrapper .side-nav {
     width: 280px;
     float: left;
-    color: #323232; }
+    color: #fff;
+    background-color: #282A36; }
     .chat-wrapper .side-nav ul {
       list-style-type: none; }
     .chat-wrapper .side-nav #username {
       margin-top: 10px; }
-    .chat-wrapper .side-nav hr {
-      border: 0.5px solid #323232; }
     .chat-wrapper .side-nav #user-image {
+      margin-top: 50px;
       margin-left: 40px;
       border-radius: 10px;
       padding: 10px; }
@@ -134,7 +136,7 @@ h2 {
   background-color: transparent;
   padding: 10px 5px;
   margin-bottom: 30px;
-  color: #fff;
+  color: #323232;
   text-transform: uppercase;
   letter-spacing: 1.4px;
   width: 80%; }
@@ -150,7 +152,6 @@ h2 {
 
 .register-wrapper label, .login-wrapper label {
   color: #323232;
-  text-transform: uppercase;
   letter-spacing: 1.4px;
   font-weight: 300;
   font-size: 12px;
@@ -162,13 +163,11 @@ h2 {
   background-color: #fff;
   padding: 10px 5px;
   margin-bottom: 30px;
-  text-transform: uppercase;
   letter-spacing: 1.4px; }
 
 .register-wrapper input:focus, .login-wrapper input:focus {
   background-color: #fff;
-  color: #323232;
-  text-transform: uppercase; }
+  color: #323232; }
 
 .register-wrapper small, .login-wrapper small {
   margin-top: -25px; }
@@ -187,3 +186,10 @@ a.back-link:hover {
   color: #323232;
   font-size: 12px;
   margin-bottom: -15px; }
+
+.send-icon {
+  color: #ff3366; }
+
+#typing-user {
+  margin-top: -25px;
+  font-size: 12px; }

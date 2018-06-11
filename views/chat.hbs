@@ -16,7 +16,7 @@
   <div class="container-fluid">
 
   <div class="row">
-    <div class="col-md-3 side-nav">
+    <div class="col-lg-2 col-md-3 side-nav">
         <img id="user-image" src="https://via.placeholder.com/70x70" />
         <p id="user-name">
           {{user.local.email}}
@@ -24,7 +24,6 @@
         <p>
           <a class="btn btn-logout" href="/logout">Log Out</a>
         </p>
-        <hr />
 
         <ul>
           <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
@@ -33,14 +32,15 @@
         </ul>
     </div>
 
-    <div class="col-md-9 chat-box">
+    <div class="col-lg-10 rcol-md-9 chat-box">
       <div id="chatbox">
       <ul id="messages"></ul>
       </div>
       <form action="">
-        <input id="m" autocomplete="off" />
-        <button class="btn btn-light"><i class="material-icons">send</i></button>
+        <input id="m" autocomplete="off" placeholder="Your message here..." autofocus/>
+        <button class="btn btn-light"><i class="material-icons send-icon">send</i></button>
       </form>
+      <p id="typing-user">&nbsp;</p>
 
     </div>
 
