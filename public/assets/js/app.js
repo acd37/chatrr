@@ -3,25 +3,23 @@ $(function () {
   var socket = io.connect();
 
   $('form').submit(function(e){
-    e.preventDefault()
+      e.preventDefault()
 
-    var submit_msg = {
-      msg: $('#m').val(),
-      user:  $("#user-name").text()
-    }
+      var submit_msg = {
+        msg: $('#m').val(),
+        user:  $("#user-name").text()
+      }
 
-    socket.emit('chat message', submit_msg);
-    $('#m').val('');
+      socket.emit('chat message', submit_msg);
+      $('#m').val('');
 
-    return false;
-  });
+      return false;
+    });
 
-  socket.on('chat message', function(new_msg){
-
-  console.log(new_msg);
-    $('#messages').append('<li><span class="user_name">' + new_msg.user + ':</span><span class="msg">' + new_msg.msg + '</span></li>')
-    scrollToBottom();
-  });
+    socket.on('chat message', function(new_msg){
+      $('#messages').append('<li><span class="user_name">' + new_msg.user + ':</span><span class="msg">' + new_msg.msg + '</span></li>')
+      scrollToBottom();
+    });
 
 
     $("#m").keyup(function(e){
@@ -58,10 +56,10 @@ $(function () {
           msg: ' is typing'
         }
         socket.emit('is typing', typing_message);
-        timeout = setTimeout(timeoutFunction, 3000);
+        timeout = setTimeout(timeoutFunction, 1500);
       } else {
         clearTimeout(timeout);
-        timeout = setTimeout(timeoutFunction, 3000);
+        timeout = setTimeout(timeoutFunction, 1500);
       }
     }
 

@@ -53,6 +53,13 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+
+    // settings
+    app.get('/settings', isLoggedIn, (req, res) => {
+      res.render('settings', {
+          user: req.user
+      });
+    })
 };
 
 
