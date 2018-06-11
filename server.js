@@ -61,6 +61,10 @@ io.on('connection', function(socket){
     io.emit('chat message', new_msg);
   });
 
+  socket.on('leave', function(){
+
+  });
+
   socket.on('is typing', function(data){
 
     let typing_message = {

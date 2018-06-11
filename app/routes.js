@@ -36,7 +36,7 @@ module.exports = function(app, passport) {
     // Process Signup Form
     app.post('/register', passport.authenticate('local-signup', {
         successRedirect: '/chat',
-        failureRedirect: '/',
+        failureRedirect: '/register',
         failureFlash: true
     }));
 

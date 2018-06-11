@@ -18,6 +18,10 @@
 <div class="login-wrapper">
   <h1>Login</h1>
 
+    {{#if message}}
+      <div class="alert alert-danger text-center">{{message}}</div>
+    {{/if}}
+    
     <div class="col-md-4 offset-md-4">
       <form method="post" action="/login">
         <div class="form-group">
