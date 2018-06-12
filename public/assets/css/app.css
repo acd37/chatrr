@@ -102,33 +102,36 @@ h2 {
       font-weight: 700; }
   .chat-wrapper .chat-box {
     background-color: #f6f6fc; }
-  .chat-wrapper #chatbox {
+  .chat-wrapper .chatbox-style {
     margin: 10px 0;
     background-color: #f6f6fc;
     border-radius: 0;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 100px) !important;
     overflow-y: hidden; }
   .chat-wrapper .side-nav {
-    width: 280px;
     float: left;
     color: #fff;
     background-color: #282A36; }
     .chat-wrapper .side-nav ul {
       list-style-type: none; }
+      .chat-wrapper .side-nav ul li {
+        margin-left: -25px; }
     .chat-wrapper .side-nav #username {
       margin-top: 10px; }
     .chat-wrapper .side-nav #user-image {
       margin-top: 50px;
-      margin-left: 40px;
+      margin-left: 15px;
       border-radius: 10px;
       padding: 10px; }
     .chat-wrapper .side-nav #user-name {
-      margin-left: 50px; }
+      margin-left: 25px; }
     .chat-wrapper .side-nav #friend-image {
       border-radius: 10px;
       padding: 10px; }
     .chat-wrapper .side-nav .user-name {
       padding: 10px; }
+    .chat-wrapper .side-nav .btn-logout {
+      margin-left: 25px; }
 
 .chat-wrapper input {
   border-radius: 0;
@@ -194,3 +197,28 @@ h2 {
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px; }
+
+.navbar {
+  display: none;
+  background-color: #f6f6fc; }
+
+.navbar-nav li {
+  margin-top: 30px; }
+
+@media (max-width: 767.98px) {
+  h1 {
+    font-weight: 300;
+    font-size: 36px;
+    margin-bottom: 20px; }
+  h2 {
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 50px; }
+  #chatbox {
+    height: calc(100vh - 160px) !important; } }
+
+@media (max-width: 991.98px) {
+  .btn-logout {
+    margin: 5px auto; }
+  .chat-wrapper .side-nav {
+    display: none !important; } }

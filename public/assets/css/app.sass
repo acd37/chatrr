@@ -112,15 +112,14 @@ h2
   .chat-box
     background-color: #f6f6fc
 
-  #chatbox
+  .chatbox-style
     margin: 10px 0
     background-color: #f6f6fc
     border-radius: 0
-    height: calc(100vh - 100px)
+    height: calc(100vh - 100px) !important
     overflow-y: hidden
 
   .side-nav
-    width: 280px
     float: left
     color: $primary-color
     background-color: $dracula
@@ -128,17 +127,20 @@ h2
     ul
       list-style-type: none
 
+      li
+        margin-left: -25px
+
     #username
       margin-top: 10px
 
     #user-image
       margin-top: 50px
-      margin-left: 40px
+      margin-left: 15px
       border-radius: 10px
       padding: 10px
 
     #user-name
-      margin-left: 50px
+      margin-left: 25px
 
     #friend-image
       border-radius: 10px
@@ -146,6 +148,9 @@ h2
 
     .user-name
       padding: 10px
+
+    .btn-logout
+      margin-left: 25px
 
 
 .chat-wrapper
@@ -213,3 +218,47 @@ h2
   margin: 20px auto
   padding: 20px
   border-radius: 10px
+
+.navbar
+  display: none
+  background-color: #f6f6fc
+
+.navbar-nav li
+    margin-top: 30px
+
+//media queries
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { }
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px)
+  h1
+    font-weight: 300
+    font-size: 36px
+    margin-bottom: 20px
+
+  h2
+    font-weight: 300
+    font-size: 14px
+    margin-bottom: 50px
+
+  #chatbox
+    height: calc(100vh - 160px) !important
+
+
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px)
+  .btn-logout
+    margin: 5px auto
+
+  .chat-wrapper
+    .side-nav
+      display:none !important
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {  }
+
+// Extra large devices (large desktops)
+// No media query since the extra-large breakpoint has no upper bound on its width

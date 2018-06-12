@@ -3,6 +3,8 @@
 
 <head>
      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
      <title>AMChatter</title>
      <meta name="Simple chat app" content="Chat app">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -13,11 +15,31 @@
 
 <body>
 
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><img id="user-image" src="https://via.placeholder.com/70x70" /></li>
+      <li class="nav-item" id="user-name">{{user.local.username}}</li>
+      <li class="nav-item"><a class="btn btn-logout" href="/logout">Log Out</a></li>
+      <li class="nav-item"><a class="btn btn-logout" href="/settings">Settings</a></li>
+      <li class="nav-item"><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
+      <li class="nav-item"><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
+      <li class="nav-item"><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
+    </ul>
+  </div>
+</nav>
+
 <div class="chat-wrapper">
   <div class="container-fluid">
 
+
+
   <div class="row">
-    <div class="col-lg-2 col-md-3 side-nav">
+    <div class="col-lg-2 col-md-4 side-nav">
         <img id="user-image" src="https://via.placeholder.com/70x70" />
         <p id="user-name">
           {{user.local.username}}
@@ -36,8 +58,8 @@
         </ul>
     </div>
 
-    <div class="col-lg-10 rcol-md-9 chat-box">
-      <div id="chatbox">
+    <div class="col-lg-10 col-md-8 chat-box">
+      <div id="chatbox" class="chatbox-style">
       <ul id="messages"></ul>
       </div>
       <form action="">

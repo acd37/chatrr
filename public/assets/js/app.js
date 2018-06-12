@@ -1,3 +1,19 @@
+$(window).resize(function(){
+  if ($(window).width() < 973) {
+    $('.col-md-8.chat-box').removeClass('col-md-8').addClass('col-md-12');
+    $('.navbar').css('display', 'block');
+  }
+
+  if ($(window).width() < 973) {
+    $('#chatbox').css('height', 'calc(100vh - 160px) !important')
+  }
+
+  if ($(window).width() > 973) {
+    $('.col-md-8.chat-box').removeClass('col-md-12').addClass('col-md-8');
+    $('.navbar').css('display', 'none');
+  }
+});
+
 $(function () {
 
   var socket = io.connect();
@@ -56,10 +72,10 @@ $(function () {
           msg: ' is typing'
         }
         socket.emit('is typing', typing_message);
-        timeout = setTimeout(timeoutFunction, 1500);
+        timeout = setTimeout(timeoutFunction, 750);
       } else {
         clearTimeout(timeout);
-        timeout = setTimeout(timeoutFunction, 1500);
+        timeout = setTimeout(timeoutFunction, 750);
       }
     }
 
