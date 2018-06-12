@@ -40,13 +40,14 @@ module.exports = function(app, passport) {
         failureFlash: true
     }));
 
-    // Profile
+    // Chat Home
     app.get('/chat', isLoggedIn, (req,res) => {
         res.render('chat', {
             user: req.user,
             email: req.user.local.email
         });
     });
+
 
     // Logout
     app.get('/logout', (req,res) => {

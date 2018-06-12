@@ -22,7 +22,7 @@ mongoose.connect(configDB.url);
 var port = process.env.PORT || 8080;
 
 //Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
 
 // Set up express app
 app.use(bodyParser());
@@ -46,13 +46,12 @@ app.set('view engine', '.hbs');
 // Routes
 require('./app/routes.js')(app,passport);
 
+
 //Socket.IO
 io.on('connection', function(socket){
-      console.log(socket.id + ' connected');
+  console.log(socket.id + ' connected');
+  io.emit('connected', socket.id);
 
-  socket.on('disconnect', function(){
-      console.log(socket.id + ' disconnected');
-  });
 
   socket.on('chat message', function(msg){
     var new_msg = {
@@ -60,7 +59,7 @@ io.on('connection', function(socket){
       msg:msg.msg
     };
     io.emit('chat message', new_msg);
-    growl('New message');
+
   });
 
   socket.on('leave', function(){

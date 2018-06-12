@@ -32,11 +32,18 @@ $(function () {
       return false;
     });
 
+
+    socket.on('connected', function(data){
+      console.log(data);
+      $('<li><span class="user_name">' + data + ' has connected.</span></li>').hide().appendTo('#messages').fadeIn(300);
+    });
+
     socket.on('chat message', function(new_msg){
       $('<li><span class="user_name">' + new_msg.user + ':</span><div class="bubble"><span class="msg">' + new_msg.msg + '</span></div></li>').hide().appendTo('#messages').fadeIn(300);
       if (new_msg.user != $("#user-name").text()) {
         newMessage();
-      };
+      }
+      // newMessageInChatBox();
       scrollToBottom();
     });
 
@@ -110,3 +117,13 @@ newMessage = (function newMessage(){
     }
   };
 }());
+
+//
+// function newMessageInChatBox(){
+//   var msg = "You have new messages!";
+//   $('<li class="new_message">' + msg + '</li>').hide().prependTo('#messages').fadeIn();
+//   $(window).mousemove(function(e){
+//     setTimeout(function(){
+//       $(".new_message").hide(); }, 2000);
+//   });
+// }
