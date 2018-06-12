@@ -1,24 +1,25 @@
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
-const passport = require('passport');
-const mongoose = require('mongoose');
-const configDB = require('./config/database.js');
-const exphbs = require('express-handlebars');
-const flash = require('connect-flash');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const app = express();
-const server = require('http').createServer(app);
-const io = require('socket.io').listen(server)
+var express = require('express');
+var path = require('path');
+var bodyParser = require('body-parser');
+var passport = require('passport');
+var mongoose = require('mongoose');
+var configDB = require('./config/database.js');
+var exphbs = require('express-handlebars');
+var flash = require('connect-flash');
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var growl = require('growl');
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
 require('./config/passport')(passport);
 
 // Configuration
-mongoose.connect(configDB.url)
+mongoose.connect(configDB.url);
 
 //Port Number
-const port = process.env.PORT || 8080;
+var port = process.env.PORT || 8080;
 
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -54,11 +55,12 @@ io.on('connection', function(socket){
   });
 
   socket.on('chat message', function(msg){
-    let new_msg = {
+    var new_msg = {
       user:msg.user,
       msg:msg.msg
-    }
+    };
     io.emit('chat message', new_msg);
+    growl('New message');
   });
 
   socket.on('leave', function(){
@@ -67,12 +69,12 @@ io.on('connection', function(socket){
 
   socket.on('is typing', function(data){
 
-    let typing_message = {
+    var typing_message = {
       user: data.user,
       msg: data.msg
-    }
+    };
 
-    io.emit('is typing', typing_message)
+    io.emit('is typing', typing_message);
   });
 
 });

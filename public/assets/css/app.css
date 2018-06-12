@@ -96,6 +96,7 @@ h2 {
       position: relative;
       margin-left: 15px;
       width: 700px;
+      max-width: 90%;
       padding: 10px;
       background: #282A36;
       -webkit-border-radius: 10px;

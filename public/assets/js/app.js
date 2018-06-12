@@ -34,6 +34,9 @@ $(function () {
 
     socket.on('chat message', function(new_msg){
       $('<li><span class="user_name">' + new_msg.user + ':</span><div class="bubble"><span class="msg">' + new_msg.msg + '</span></div></li>').hide().appendTo('#messages').fadeIn(300);
+      if (new_msg.user != $("#user-name").text()) {
+        newMessage();
+      };
       scrollToBottom();
     });
 
@@ -87,3 +90,23 @@ function scrollToBottom(){
   var objDiv = document.getElementById("chatbox");
   objDiv.scrollTop = objDiv.scrollHeight;
 }
+
+
+newMessage = (function newMessage(){
+  var oldTitle = document.title;
+  var msg = "New message...";
+  var timeoutId;
+  var blink = function () {document.title = document.title == msg ? ' ' : msg; };
+  var clear = function() {
+    clearInterval(timeoutId);
+    document.title = oldTitle;
+    window.onmousemove = null;
+    timeoutId = null;
+  };
+  return function () {
+    if (!timeoutId) {
+      timeoutId = setInterval(blink, 1000);
+      window.onmousemove = clear;
+    }
+  };
+}());
