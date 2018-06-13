@@ -1,5 +1,5 @@
-# AMChatter (in development)
-
+# Chatrr
+https://dashboard.heroku.com/apps/amchatter
 
 ## Contributors
 @acd37
@@ -14,7 +14,6 @@
 
 ## License 
 * This project is licensed under The MIT License (MIT).
-
 
 ## How-to use this code
 * You will need to add your own MongoDB database.
