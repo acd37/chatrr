@@ -1,5 +1,5 @@
 # Chatrr
-https://dashboard.heroku.com/apps/amchatter
+http://amchatter.herokuapp.com/
 
 ## Contributors
 @acd37
