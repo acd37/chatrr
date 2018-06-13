@@ -99,12 +99,18 @@ h2
       font-family: 'Open Sans', sans-serif
       color: $primary-color
       font-size: 14px
-      padding: 8px 20px 8px 10px
-      margin: 20px
-      box-shadow: 5px 3px 6px rgba(102,102,102, 0.16), 0 3px 6px rgba(102,102,102, 0.23)
-      border-radius: 10px
-      background-color: $dracula
 
+    .bubble
+      position: relative
+      margin-left: 15px
+      width: 700px
+      max-width: 90%
+      padding: 10px
+      background: $dracula
+      -webkit-border-radius: 10px
+      -moz-border-radius: 10px
+      border-radius: 10px
+      box-shadow: 5px 3px 6px rgba(0,0,0, 0.16), 0 3px 6px rgba(0,0,0, 0.23)
 
     .user_name
       font-weight: 700
@@ -124,11 +130,18 @@ h2
     color: $primary-color
     background-color: $dracula
 
+    h6
+      margin-top: 60px
+      margin-left: 25px
+
+    hr
+      border: 0.5px solid $primary-color
+
     ul
       list-style-type: none
 
       li
-        margin-left: -25px
+        margin-left: -15px
 
     #username
       margin-top: 10px
@@ -226,6 +239,11 @@ h2
 .navbar-nav li
     margin-top: 30px
 
+.new_message
+  font-size: 12px
+  color: $accent
+
+
 //media queries
 
 // Extra small devices (portrait phones, less than 576px)
@@ -245,8 +263,6 @@ h2
 
   #chatbox
     height: calc(100vh - 160px) !important
-
-
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px)

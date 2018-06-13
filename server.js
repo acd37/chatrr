@@ -1,35 +1,36 @@
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
-const passport = require('passport');
-const mongoose = require('mongoose');
-const configDB = require('./config/database.js');
-const exphbs = require('express-handlebars');
-const flash = require('connect-flash');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const app = express();
-const server = require('http').createServer(app);
-const io = require('socket.io').listen(server)
+var express = require('express');
+var path = require('path');
+var bodyParser = require('body-parser');
+var passport = require('passport');
+var mongoose = require('mongoose');
+var configDB = require('./config/database.js');
+var exphbs = require('express-handlebars');
+var flash = require('connect-flash');
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
 require('./config/passport')(passport);
 
 // Configuration
-mongoose.connect(configDB.url)
+mongoose.connect(configDB.url);
 
 //Port Number
-const port = process.env.PORT || 8080;
+var port = process.env.PORT || 8080;
 
 //Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
 
 // Set up express app
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cookieParser());
 
 // Required for passport
-app.use(session({secret: 'helloworld'}));
+app.use(session({secret: 'hello world', resave: true, saveUninitialized:true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -45,34 +46,56 @@ app.set('view engine', '.hbs');
 // Routes
 require('./app/routes.js')(app,passport);
 
-//Socket.IO
-io.on('connection', function(socket){
-      console.log(socket.id + ' connected');
 
-  socket.on('disconnect', function(){
-      console.log(socket.id + ' disconnected');
+//Socket.IO
+
+var clients = [];
+
+io.on('connection', function(socket){
+  console.log(socket.id + ' connected');
+  io.emit('connected', socket.id);
+
+  socket.on('return username', function(data){
+    if(clients.indexOf(data) == -1) {
+        clients.push(data);
+    }
+    console.log(data + ' connected');
+    io.emit('emit user', clients);
+  });
+
+
+  socket.on('disconnect', function(data){
+    console.log(socket.id + ' disconnected');
+    io.emit('return disconnected user', socket.id);
+  });
+
+
+  socket.on('disconnected user', function(data){
+    console.log('BEFORE: ' + clients);
+    var index = clients.indexOf(data);
+    clients = clients.splice(index, 1);
+    // console.log(new_clients)
+
+    io.emit('emit disconnected user', clients);
   });
 
   socket.on('chat message', function(msg){
-    let new_msg = {
+    var new_msg = {
       user:msg.user,
       msg:msg.msg
-    }
+    };
     io.emit('chat message', new_msg);
-  });
-
-  socket.on('leave', function(){
 
   });
 
   socket.on('is typing', function(data){
 
-    let typing_message = {
+    var typing_message = {
       user: data.user,
       msg: data.msg
-    }
+    };
 
-    io.emit('is typing', typing_message)
+    io.emit('is typing', typing_message);
   });
 
 });
