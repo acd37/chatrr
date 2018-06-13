@@ -9,7 +9,7 @@ var flash = require('connect-flash');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var growl = require('growl');
+var MongoStore = require('connect-mongo')(session);
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
@@ -25,12 +25,12 @@ var port = process.env.PORT || 8080;
 app.use(express.static(__dirname + '/public'));
 
 // Set up express app
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cookieParser());
 
 // Required for passport
-app.use(session({secret: 'helloworld'}));
+app.use(session({secret: 'hello world', resave: true, saveUninitialized:true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -48,10 +48,36 @@ require('./app/routes.js')(app,passport);
 
 
 //Socket.IO
+
+var clients = [];
+
 io.on('connection', function(socket){
   console.log(socket.id + ' connected');
   io.emit('connected', socket.id);
 
+  socket.on('return username', function(data){
+    if(clients.indexOf(data) == -1) {
+        clients.push(data);
+    }
+    console.log(data + ' connected');
+    io.emit('emit user', clients);
+  });
+
+
+  socket.on('disconnect', function(data){
+    console.log(socket.id + ' disconnected');
+    io.emit('return disconnected user', socket.id);
+  });
+
+
+  socket.on('disconnected user', function(data){
+    console.log('BEFORE: ' + clients);
+    var index = clients.indexOf(data);
+    clients = clients.splice(index, 1);
+    // console.log(new_clients)
+
+    io.emit('emit disconnected user', clients);
+  });
 
   socket.on('chat message', function(msg){
     var new_msg = {
@@ -59,10 +85,6 @@ io.on('connection', function(socket){
       msg:msg.msg
     };
     io.emit('chat message', new_msg);
-
-  });
-
-  socket.on('leave', function(){
 
   });
 

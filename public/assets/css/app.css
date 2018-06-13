@@ -118,10 +118,15 @@ h2 {
     float: left;
     color: #fff;
     background-color: #282A36; }
+    .chat-wrapper .side-nav h6 {
+      margin-top: 60px;
+      margin-left: 25px; }
+    .chat-wrapper .side-nav hr {
+      border: 0.5px solid #fff; }
     .chat-wrapper .side-nav ul {
       list-style-type: none; }
       .chat-wrapper .side-nav ul li {
-        margin-left: -25px; }
+        margin-left: -15px; }
     .chat-wrapper .side-nav #username {
       margin-top: 10px; }
     .chat-wrapper .side-nav #user-image {

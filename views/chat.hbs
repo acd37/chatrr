@@ -26,9 +26,9 @@
       <li class="nav-item" id="user-name">{{user.local.username}}</li>
       <li class="nav-item"><a class="btn btn-logout" href="/logout">Log Out</a></li>
       <li class="nav-item"><a class="btn btn-logout" href="/settings">Settings</a></li>
-      <li class="nav-item"><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
-      <li class="nav-item"><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
-      <li class="nav-item"><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
+    </ul>
+    <ul class="navbar-nav mr-auto" >
+
     </ul>
   </div>
 </nav>
@@ -37,11 +37,10 @@
   <div class="container-fluid">
 
 
-
   <div class="row">
     <div class="col-lg-2 col-md-4 side-nav">
-        <img id="user-image" src="https://via.placeholder.com/70x70" />
-        <p id="user-name">
+        <img  id="user-image" src="https://via.placeholder.com/70x70" />
+        <p data-user={{user.local.username}} id="user-name">
           {{user.local.username}}
         </p>
         <p>
@@ -51,10 +50,10 @@
           <a class="btn btn-logout" href="/settings">Settings</a>
         </p>
 
-        <ul>
-          <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
-          <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
-          <li><img id="friend-image" src="https://via.placeholder.com/35x35" /> User</li>
+        <h6>Active Users</h6>
+        <hr />
+        <ul id="user-list">
+
         </ul>
     </div>
 

@@ -14,6 +14,9 @@ $(window).resize(function(){
   }
 });
 
+
+
+
 $(function () {
 
   var socket = io.connect();
@@ -32,11 +35,41 @@ $(function () {
       return false;
     });
 
-
     socket.on('connected', function(data){
-      console.log(data);
-      $('<li><span class="user_name">' + data + ' has connected.</span></li>').hide().appendTo('#messages').fadeIn(300);
+      data = $(".side-nav p").attr("data-user");
+      socket.emit('return username', data);
     });
+
+    socket.on('emit user', function(data){
+      // $('<li><span class="user_name">' + data + ' has connected.</span></li>').hide().appendTo('#messages').fadeIn(300);
+      $('#user-list').empty();
+      for (var i = 0; i < data.length; i++){
+        $('#user-list').append('<li>' + data[i] + '</li>');
+      }
+      console.log('emit user ' + data);
+    });
+
+
+
+
+
+      socket.on('return disconnected user', function(data){
+      var user_name = $(".side-nav p").attr("data-user");
+      socket.emit('disconnected user', user_name);
+    });
+
+    socket.on('emit disconnected user', function(data){
+      $('#user-list').empty();
+      console.log(data);
+      for (var i = 0; i < data.length; i++){
+        $('#user-list').append('<li>' + data[i] + '</li>');
+      }
+      console.log('emit disconnected user ' + data);
+    });
+
+
+
+
 
     socket.on('chat message', function(new_msg){
       $('<li><span class="user_name">' + new_msg.user + ':</span><div class="bubble"><span class="msg">' + new_msg.msg + '</span></div></li>').hide().appendTo('#messages').fadeIn(300);
@@ -117,6 +150,8 @@ newMessage = (function newMessage(){
     }
   };
 }());
+
+
 
 //
 // function newMessageInChatBox(){

@@ -64,8 +64,6 @@ module.exports = function(app, passport) {
 };
 
 
-
-
 // Route Middleware
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){
