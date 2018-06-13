@@ -7,7 +7,7 @@ https://dashboard.heroku.com/apps/amchatter
 
 
 ## Technology
-* NodeJS, ExpressJS, PassportJS, HTML5, CSS3, Bootstrap
+* NodeJS, ExpressJS, PassportJS, Socket.IO, HTML5, CSS3, Bootstrap
 
 ## About
 * AMChatter is a lightweight chat application.
