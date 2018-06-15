@@ -22,7 +22,6 @@
   </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><img id="user-image" src="https://via.placeholder.com/70x70" /></li>
         <li class="nav-item" id="user-name">{{user.local.username}}</li>
         <li class="nav-item"><a class="btn btn-logout" href="/logout">Log Out</a></li>
         <li class="nav-item"><a class="btn btn-logout" href="/settings">Settings</a></li>
@@ -39,7 +38,8 @@
 
       <div class="row">
         <div class="col-lg-2 col-md-4 side-nav">
-          <img id="user-image" src="https://via.placeholder.com/70x70" />
+          <br />
+          <br />
           <p data-user= {{user.local.username}} id="user-name">
             {{user.local.username}}
           </p>
