@@ -14,24 +14,18 @@ $(window).resize(function(){
   }
 });
 
-
-
-
 $(function () {
 
   var socket = io.connect();
 
   $('form').submit(function(e){
       e.preventDefault();
-
       var submit_msg = {
         msg: $('#m').val(),
         user:  $("#user-name").text()
       };
-
       socket.emit('chat message', submit_msg);
       $('#m').val('');
-
       return false;
     });
 
@@ -44,16 +38,12 @@ $(function () {
       // $('<li><span class="user_name">' + data + ' has connected.</span></li>').hide().appendTo('#messages').fadeIn(300);
       $('#user-list').empty();
       for (var i = 0; i < data.length; i++){
-        $('#user-list').append('<li>' + data[i] + '</li>');
+        $('<li>' + data[i] + '</li>').hide().appendTo('#user-list').fadeIn(300);
       }
       console.log('emit user ' + data);
     });
 
-
-
-
-
-      socket.on('return disconnected user', function(data){
+    socket.on('return disconnected user', function(data){
       var user_name = $(".side-nav p").attr("data-user");
       socket.emit('disconnected user', user_name);
     });
@@ -66,10 +56,6 @@ $(function () {
       }
       console.log('emit disconnected user ' + data);
     });
-
-
-
-
 
     socket.on('chat message', function(new_msg){
       $('<li><span class="user_name">' + new_msg.user + ':</span><div class="bubble"><span class="msg">' + new_msg.msg + '</span></div></li>').hide().appendTo('#messages').fadeIn(300);
@@ -122,7 +108,6 @@ $(function () {
       }
     }
 
-
 });
 
 
@@ -130,7 +115,6 @@ function scrollToBottom(){
   var objDiv = document.getElementById("chatbox");
   objDiv.scrollTop = objDiv.scrollHeight;
 }
-
 
 newMessage = (function newMessage(){
   var oldTitle = document.title;
@@ -150,15 +134,3 @@ newMessage = (function newMessage(){
     }
   };
 }());
-
-
-
-//
-// function newMessageInChatBox(){
-//   var msg = "You have new messages!";
-//   $('<li class="new_message">' + msg + '</li>').hide().prependTo('#messages').fadeIn();
-//   $(window).mousemove(function(e){
-//     setTimeout(function(){
-//       $(".new_message").hide(); }, 2000);
-//   });
-// }

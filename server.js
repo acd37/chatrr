@@ -48,7 +48,6 @@ require('./app/routes.js')(app,passport);
 
 
 //Socket.IO
-
 var clients = [];
 
 io.on('connection', function(socket){
@@ -63,12 +62,10 @@ io.on('connection', function(socket){
     io.emit('emit user', clients);
   });
 
-
   socket.on('disconnect', function(data){
     console.log(socket.id + ' disconnected');
     io.emit('return disconnected user', socket.id);
   });
-
 
   socket.on('disconnected user', function(data){
     console.log('BEFORE: ' + clients);
@@ -89,15 +86,12 @@ io.on('connection', function(socket){
   });
 
   socket.on('is typing', function(data){
-
     var typing_message = {
       user: data.user,
       msg: data.msg
     };
-
     io.emit('is typing', typing_message);
   });
-
 });
 
 //Start server
